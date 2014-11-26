@@ -1,15 +1,22 @@
-(function(map, on, off) {
+function($){
+	var map=[], on=$.fn.on, off=$.fn.off;
     $.fn.on = function(type, fn, a, sel, p){
-        if(a) sel=fn,map.push([fn=function(e){
+        if(a) map.push([sel=fn,fn=function(e){
             p=e.target; do{
-                if(p.matches(sel)) return e.target=p,a.call(this,e);
+                if(p.matches && p.matches(sel))
+                    return e.target=p,a.call(this,e);
             }while(p=p.parentNode);
         },a]);
         return on.call(this, type, fn);
     };
     $.fn.off = function(type, fn, a, c){
         for(c=map.length;a&&c--;)
-            if(map[c][1]==a){fn=map.splice(c,1)[0][0];break;}
+            if(map[c][2]==a && map[c][0]===fn)
+                {fn=map.splice(c,1)[0][1];break;}
         return off.call(this, type, fn);
     };
-}([], $.fn.on, $.fn.off));
+}
+
+if (typeof define==='function' && define.amd) {
+	define(['ford'], function($){  });
+}

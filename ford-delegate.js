@@ -1,4 +1,9 @@
-function($){
+(function(g, f) {
+	if (typeof define==='function' && define.amd)
+		define(['ford'], f);
+	else
+		f(g.$);
+}(this, function($) {
 	var map=[], on=$.fn.on, off=$.fn.off;
     $.fn.on = function(type, fn, a, sel, p){
         if(a) map.push([sel=fn,fn=function(e){
@@ -15,8 +20,4 @@ function($){
                 {fn=map.splice(c,1)[0][1];break;}
         return off.call(this, type, fn);
     };
-}
-
-if (typeof define==='function' && define.amd) {
-	define(['ford'], function($){  });
-}
+}));

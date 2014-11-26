@@ -1,0 +1,4 @@
+ford-delegate
+=============
+
+Delegate Responsibly®

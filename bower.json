@@ -1,0 +1,29 @@
+{
+  "name": "ford-delegate",
+  "main": "ford-delegate.js",
+  "version": "0.1.0",
+  "homepage": "https://github.com/developit/ford-delegate",
+  "authors": [
+    "Jason Miller <jason@developit.ca>"
+  ],
+  "description": "A plugin for ford.js that adds event delegation support to on() and off().",
+  "moduleType": [
+    "amd",
+    "globals"
+  ],
+  "keywords": [
+    "ford",
+    "ford.js",
+    "delegation",
+    "events",
+    "dom"
+  ],
+  "license": "BSD",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
